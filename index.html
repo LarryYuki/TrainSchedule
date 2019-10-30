@@ -6,15 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tranin time</title>
-</head>
-
-<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"
+    </script>
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./app.js"></script>
+</head>
 
+<body>
+    <!-- jumborton -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3-md">
+
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Train Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Frequency(min)</th>
+                <th scope="col">Next arrival</th>
+                <th scope="col">Minutes away</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <div class="container">
+
+        <form>
+            <div class="row">
+
+                <label for="trainName">Train Name</label>
+                <input id="trainName" name="trainName" type="text">
+            </div>
+            <div class="row">
+
+                <label for="Destination">Destination</label>
+                <input id="dest" name="destination" type="text">
+            </div>
+            <div class="row">
+
+                <label for="firstTime">First Time</label>
+                <input id="first" name="firstTime" type="text">
+            </div>
+            <div class="row">
+                <label for="frequency">Frequency</label>
+                <input id="frequency" type="text">
+            </div>
+            <div class="row">
+                <button id="submit">Submit</button>
+            </div>
+        </form>
+
+    </div>
 </body>
+<script src="./app.js"></script>
 
 </html>
