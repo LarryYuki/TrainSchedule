@@ -33,15 +33,15 @@ $(document).ready(function () {
     });
     db.ref().on("child_added", function (snapshot) {
         console.log(snapshot.val())
-        console.log(snapshot.key) //if we need the key firebase creates on push
-        // console.log(snapshot.key) //if we need the key firebase creates on push
-        // console.log(snapshot) //in case you're curious
+        console.log(snapshot.key)
 
         var thisTrain = snapshot.val()
-        var now = moment().format('h:mm:ss a');
-        var later = moment().add(10, 'minutes')
-        var minutesAway = (later - now)
-
+        var now = moment().format('HH:mm');
+        var arrivaltime = snapshot.val().time;
+        var after = moment().format(arrivaltime, 'hh:mm')
+        console.log(arrivaltime);
+        console.log(moment().diff(moment(arrivaltime, 'hh:mm'), 'hours'))
+        var dif = moment().diff(moment(arrivaltime, 'hh:mm'), 'hours')
         var newRow = $('<tr>')
 
         var newCell = $('<td>')
@@ -51,22 +51,9 @@ $(document).ready(function () {
         newRow.append($('<td>').text(thisTrain.dest))
         newRow.append($('<td>').text(thisTrain.frequency))
         newRow.append($('<td>').text(thisTrain.time))
-        newRow.append($('<td>').text(later))
-
-
-        // Example to tell difference using moment
-
-        console.log(moment().diff(later, 'minutes'));
-
-
-
-        // figure out difference (.diff()) of now and the first train time
-        // figure out how long since last train ( with modulo of frequency)
-        // minutes til next is frequency minus time since last train
-        // time of next train is now plus minutes til next train (.add())
-        // put on page
+        newRow.append($('<td>').text(dif))
         $('tbody').append(newRow)
-    })
+    });
 
 
 
